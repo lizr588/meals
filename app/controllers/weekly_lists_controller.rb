@@ -8,10 +8,10 @@ class WeeklyListsController < ApplicationController
   end
 
   def shopping_list
-    
+    shopping_list = ShoppingList.create(recipe_id: params[:recipe_id], ingredient_id: params[:ingredient_id])
   end
 
   def shopping
-
+    @shopping_lists = ShoppingList.all
   end
 end

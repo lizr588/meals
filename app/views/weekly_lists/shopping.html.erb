@@ -1,2 +1,6 @@
-<h1>WeeklyLists#shopping_list</h1>
-<p>Find me in app/views/weekly_lists/shopping_list.html.erb</p>
+<h1>Shopping List</h1>
+<div>
+  <% @shopping_lists.each do |shop| %>
+  <li><%= shop.ingredient_id %></li>
+  <% end %>
+</div>

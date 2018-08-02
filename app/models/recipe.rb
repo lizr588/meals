@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
 
   belongs_to :category
   belongs_to :this_week, optional: true
+  belongs_to :shopping_list, optional: true
 
   has_many :ingr_recs
   has_many :ingredients, through: :ingr_recs
