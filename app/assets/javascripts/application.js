@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require select2-full
 //= require turbolinks
+//= require jquery.easy-autocomplete
 //= require_tree .
