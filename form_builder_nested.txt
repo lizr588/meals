@@ -8,3 +8,10 @@
 
 <% end %>
   </div>
+
+search testing
+
+  var options = {
+    data: ["red", "green"]
+  };
+  $("input").easyAutocomplete(options)
