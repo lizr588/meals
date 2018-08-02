@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'main/index'
+  get :search, controller: :main
   resources :store_maps
   resources :store_sections
   resources :ingredients
