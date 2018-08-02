@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Type</th>
+      <th>Category</th>
       <th>Amount</th>
       <th>Unit</th>
       <th>Ingredient</th>
@@ -31,22 +31,23 @@
         <td><%= recipe.rating %></td>
         <td><%= recipe.notes %></td>
         <td><%= recipe.link %></td>
+
         <td>
-          <% if recipe.vegetarian == 1 %>
-            <%= "Yes" %>
-          <% else %>
-            <%= "No" %>
-          <% end %>
-          </td>
-        <td>
-          <% if recipe.meal_prep == 1 %>
+          <% if recipe.vegetarian == "1" %>
             <%= "Yes" %>
           <% else %>
             <%= "No" %>
           <% end %>
           </td>
           <td>
-            <% if recipe.tried == 1 %>
+          <% if recipe.meal_prep == "1" %>
+            <%= "Yes" %>
+          <% else %>
+            <%= "No" %>
+          <% end %>
+          </td>
+          <td>
+            <% if recipe.tried == "1" %>
               <%= "Yes" %>
             <% else %>
               <%= "No" %>

@@ -7,12 +7,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @recipe.category_id %>
-</p>
-
-<p>
-  <strong>Vegetarian:</strong>
-  <%= @recipe.vegetarian %>
+  <%= @recipe.category.name %>
 </p>
 
 <p>
@@ -31,18 +26,8 @@
 </p>
 
 <p>
-  <strong>Tried:</strong>
-  <%= @recipe.tried %>
-</p>
-
-<p>
   <strong>Rating:</strong>
   <%= @recipe.rating %>
-</p>
-
-<p>
-  <strong>Meal prep:</strong>
-  <%= @recipe.meal_prep %>
 </p>
 
 <p>
@@ -59,6 +44,30 @@
   <strong>Image:</strong>
   <%= @recipe.avatar %>
 </p>
+
+<td>
+  <strong>Vegetarian:</strong>
+  <% if @recipe.vegetarian == "1" %>
+    <%= "Yes" %>
+  <% else %>
+    <%= "No" %>
+  <% end %>
+  </td>
+  <strong>Meal Prep:</strong>
+  <% if @recipe.meal_prep == "1" %>
+    <%= "Yes" %>
+  <% else %>
+    <%= "No" %>
+  <% end %>
+  </td>
+  <td>
+    <strong>Tried:</strong>
+    <% if @recipe.tried == "1" %>
+      <%= "Yes" %>
+    <% else %>
+      <%= "No" %>
+    <% end %>
+    </td>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
