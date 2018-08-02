@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :store_maps
+  resources :store_sections
   resources :ingredients
   resources :categories
   resources :recipes

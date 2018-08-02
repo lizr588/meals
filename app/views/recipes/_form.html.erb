@@ -29,13 +29,10 @@
     <%= form.text_field :unit, placeholder: "Unit", class: "form-control" %>
   </div>
 
-<div id="searchable">
-  <%= form.fields_for :ingredient do |builder|%>
-    <%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"}, id: "searchable" %>
-    <%= builder.check_box :_destroy %>
-    <%= builder.label :_destroy, "Remove" %>
-<% end %>
-  </div>
+<div>
+    <%= form.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"}, id: "searchable" %>
+</div>
+
 
   <div class="field">
     <%= form.number_field :ingredient_id, placeholder: "Ingredient", class: "form-control" %>

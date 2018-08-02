@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @store_section.section %>
+</p>
+
+<p>
+  <strong>Store map:</strong>
+  <%= @store_section.store_map_id %>
+</p>
+
+<%= link_to 'Edit', edit_store_section_path(@store_section) %> |
+<%= link_to 'Back', store_sections_path %>

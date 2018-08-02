@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Aisl:</strong>
+  <%= @store_map.aisl %>
+</p>
+
+<p>
+  <strong>Aisle number:</strong>
+  <%= @store_map.aisle_number %>
+</p>
+
+<%= link_to 'Edit', edit_store_map_path(@store_map) %> |
+<%= link_to 'Back', store_maps_path %>

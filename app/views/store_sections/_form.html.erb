@@ -1,0 +1,27 @@
+<%= form_with(model: store_section, local: true) do |form| %>
+  <% if store_section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store_section.errors.count, "error") %> prohibited this store_section from being saved:</h2>
+
+      <ul>
+      <% store_section.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :section %>
+    <%= form.text_field :section %>
+  </div>
+
+  <div class="field">
+    <%= form.label :store_map_id %>
+    <%= form.number_field :store_map_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

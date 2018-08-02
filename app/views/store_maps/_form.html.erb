@@ -1,0 +1,27 @@
+<%= form_with(model: store_map, local: true) do |form| %>
+  <% if store_map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store_map.errors.count, "error") %> prohibited this store_map from being saved:</h2>
+
+      <ul>
+      <% store_map.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :aisl %>
+    <%= form.text_field :aisl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aisle_number %>
+    <%= form.number_field :aisle_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
