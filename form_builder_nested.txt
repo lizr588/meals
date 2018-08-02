@@ -1,13 +1,4 @@
-<div>
-  <%= form.fields_for :ingredient do |builder|%>
-  <div id="searchable">
-    <%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"}, id: "searchable" %>
-</div>
-    <%= builder.check_box :_destroy %>
-    <%= builder.label :_destroy, "Remove" %>
 
-<% end %>
-  </div>
 
 search testing
 

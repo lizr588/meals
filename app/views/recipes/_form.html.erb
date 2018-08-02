@@ -30,12 +30,11 @@
   </div>
 
 <div>
-    <%= form.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"}, id: "searchable" %>
-</div>
+  <%= form.fields_for :ingredient do |builder|%>
+    <%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"} %>
+    <%= builder.check_box :_destroy %>
 
-
-  <div class="field">
-    <%= form.number_field :ingredient_id, placeholder: "Ingredient", class: "form-control" %>
+<% end %>
   </div>
 
   <div class="form-group">
