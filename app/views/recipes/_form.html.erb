@@ -1,4 +1,4 @@
-<%= form_with(model: recipe, local: true) do |form| %>
+<%= form_for @recipe do |form| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -16,8 +16,8 @@
   </div>
 
 
-  <div class="form-group">
-    <%= form.select :category_id, @categories.collect { |c| [c.name, c.id ]}, {include_blank: "Please select a category"} %>
+  <div>
+    <%= form.select :category_id, @categories.collect { |c| [c.name, c.id ]}, {include_blank: "Please select a category"}, id: "searchable" %>
   </div>
 
 
@@ -27,6 +27,14 @@
 
   <div class="form-group">
     <%= form.text_field :unit, placeholder: "Unit", class: "form-control" %>
+  </div>
+
+<div id="searchable">
+  <%= form.fields_for :ingredient do |builder|%>
+    <%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"}, id: "searchable" %>
+    <%= builder.check_box :_destroy %>
+    <%= builder.label :_destroy, "Remove" %>
+<% end %>
   </div>
 
   <div class="field">
