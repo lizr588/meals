@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :category
+  belongs_to :this_week, optional: true
 
   has_many :ingr_recs
   has_many :ingredients, through: :ingr_recs

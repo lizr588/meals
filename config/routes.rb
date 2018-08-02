@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'thisweek' => 'weekly_lists#this_week'
+  get 'shoppinglist' => 'weekly_lists#shopping_list'
   get 'main/index'
   get :search, controller: :main
   resources :store_maps
