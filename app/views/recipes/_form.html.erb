@@ -11,22 +11,19 @@
     </div>
   <% end %>
 
+
+
   <div class="form-group">
     <%= form.text_field :name, placeholder: "Name", class: "form-control" %>
   </div>
-
 
   <div>
     <%= form.select :category_id, @categories.collect { |c| [c.name, c.id ]}, {include_blank: "Please select a category"}, id: "searchable" %>
   </div>
 
-
-
-<div class="ingredients">
-  <%= form.fields_for :ingredients do |builder|%>
+<div id="ingredients">
+  <%= form.fields_for :ingredients do |builder| %>
   <%= render 'ingredient_fields', form: builder %>
-
-
 <% end %>
   </div>
 
@@ -60,8 +57,8 @@
     <%= form.file_field :avatar %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-      <%= link_to_add_association 'Add', form, :ingredients, data: { association_insertion_node: '.ingredients', association_insertion_method: :append } %>
+  <div class="links">
+      <%= link_to_add_association 'Add', form, :ingredients, data: { association_insertion_node: '#ingredients', association_insertion_method: :append } %>
   </div>
+  <%= form.submit 'save' %>
 <% end %>

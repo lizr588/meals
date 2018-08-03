@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :category
-  has_many :ingredients
+  has_many :ingredients, inverse_of: :recipe
   # has_many :ingr_recs
   # has_many :ingredients, through: :ingr_recs
 

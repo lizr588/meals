@@ -1,10 +1,13 @@
-<tr class="nested-fields">
-  <td>
-    <%= link_to_remove_association "remove", f %>
-  </td>
-  <td><%= f.text_area :name, label: "name" %></td>
-  <%= f.number_field :amount, placeholder: "Amount" %>
-  <%= f.text_field :unit, placeholder: "Unit" %>
-  <%= f.check_box :_destroy, as: :hidden %>
+<div class="nested-fields">
 
-</tr>
+  <div class="field">
+    <%= f.text_field :name, label: "name" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :amount, placeholder: "Amount" %>
+    </div>
+  <div class="field">
+    <%= f.text_field :unit, placeholder: "Unit" %>
+
+  <%= link_to_remove_association "remove", f %>
+</div>

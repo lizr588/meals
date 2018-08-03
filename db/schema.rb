@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_135643) do
+ActiveRecord::Schema.define(version: 2018_08_03_211042) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2018_08_02_135643) do
     t.integer "store_section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit"
+    t.float "amount"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -50,6 +52,13 @@ ActiveRecord::Schema.define(version: 2018_08_02_135643) do
     t.string "avatar"
   end
 
+  create_table "shopping_lists", force: :cascade do |t|
+    t.integer "ingredient_id"
+    t.integer "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "store_maps", force: :cascade do |t|
     t.string "aisl"
     t.integer "aisle_number"
@@ -60,6 +69,12 @@ ActiveRecord::Schema.define(version: 2018_08_02_135643) do
   create_table "store_sections", force: :cascade do |t|
     t.string "section"
     t.integer "store_map_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "this_weeks", force: :cascade do |t|
+    t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
