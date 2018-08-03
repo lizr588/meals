@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
       puts list + "string"
     end
     puts "list is" + list
-# link on shopping page to navigate back to index and not clear out ""; redirect back to index?; refer to this method in index method?
+# link on shopping page to navigate back to index and not clear out ""; redirect back to index?; refer to this method in index method?  pass list out of this method to index?
   end
 
   # GET /recipes/1
@@ -27,12 +27,15 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+
     @categories = Category.all
+
     @ingredients = Ingredient.all
   end
 
   # GET /recipes/1/edit
   def edit
+  
     @categories = Category.all
   end
 
@@ -84,6 +87,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :category_id, :vegetarian, :amount, :unit, :ingredient_id, :tried, :rating, :meal_prep, :notes, :link, :avatar)
+      params.require(:recipe).permit(:name, :category_id, :vegetarian, :amount, :unit, :ingredient_id, :tried, :rating, :meal_prep, :notes, :link, :avatar, ingredient_attributes: Ingredient.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

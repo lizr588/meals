@@ -21,18 +21,11 @@
   </div>
 
 
-<div class="form-group">
-    <%= form.number_field :amount, placeholder: "Amount", class: "form-control" %>
-  </div>
 
-  <div class="form-group">
-    <%= form.text_field :unit, placeholder: "Unit", class: "form-control" %>
-  </div>
+<div class="ingredients">
+  <%= form.fields_for :ingredients do |builder|%>
+  <%= render 'ingredient_fields', form: builder %>
 
-<div>
-  <%= form.fields_for :ingredient do |builder|%>
-    <%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"} %>
-    <%= builder.check_box :_destroy %>
 
 <% end %>
   </div>
@@ -69,5 +62,6 @@
 
   <div class="actions">
     <%= form.submit %>
+      <%= link_to_add_association 'Add', form, :ingredients, data: { association_insertion_node: '.ingredients', association_insertion_method: :append } %>
   </div>
 <% end %>

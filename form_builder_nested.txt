@@ -6,3 +6,4 @@ search testing
     data: ["red", "green"]
   };
   $("input").easyAutocomplete(options)
+<%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"} %>
