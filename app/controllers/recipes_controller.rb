@@ -1,10 +1,22 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :shopping]
 
   # GET /recipes
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+  end
+
+  def shopping
+    @recipe = params[:id]
+
+    list = ""
+    if (@recipe != nil)
+      list = list + "," + @recipe.to_s
+      puts list + "string"
+    end
+    puts "list is" + list
+# link on shopping page to navigate back to index and not clear out ""; redirect back to index?; refer to this method in index method?
   end
 
   # GET /recipes/1
