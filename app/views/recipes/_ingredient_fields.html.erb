@@ -1,0 +1,13 @@
+<div class="nested-fields">
+
+  <div class="field">
+    <%= f.text_field :name, label: "name" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :amount, placeholder: "Amount" %>
+    </div>
+  <div class="field">
+    <%= f.text_field :unit, placeholder: "Unit" %>
+
+  <%= link_to_remove_association "remove", f %>
+</div>
