@@ -17,6 +17,6 @@ class WeeklyListsController < ApplicationController
 # view shopping list
   def shopping
     @shopping_lists = ShoppingList.all
-    @ingredients = Ingredients.all
+    # @ingredients = Ingredients.all
   end
 end

@@ -7,3 +7,30 @@ search testing
   };
   $("input").easyAutocomplete(options)
 <%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"} %>
+
+
+class Ingredient < ApplicationRecord
+  belongs_to :recipe, optional: true
+  belongs_to :store_section, optional: true
+  # has_many :ingr_recs
+  # has_many :recipes, through: :ingr_recs
+end
+
+
+class Recipe < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
+  belongs_to :category
+  has_many :ingredients, inverse_of: :recipe
+  # has_many :ingr_recs
+  # has_many :ingredients, through: :ingr_recs
+
+  accepts_nested_attributes_for :ingredients, :allow_destroy => true
+  # :reject_if => lambda { |a| a[:ingredient].blank? },
+end
+
+
+
+  <div>
+    <%= form.select :category_id, @categories.collect { |c| [c.name, c.id ]}, {include_blank: "Please select a category", id: "searchable"} %>
+  </div>
