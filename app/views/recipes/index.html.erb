@@ -16,6 +16,7 @@
       <th>Vegetarian</th>
       <th>Meal Prep</th>
       <th>Tried</th>
+      <th>This Week</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -53,10 +54,19 @@
               <%= "No" %>
             <% end %>
             </td>
+
+          <td id="toggle-thisweek">
+            <% if recipe.thisweek == false %>
+              <%= "" %>
+            <% else %>
+              <%= "In Queue" %>
+            <% end %>
+            </td>
+
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Select', shopping_path(id: recipe) %></td>
+        <td><%= link_to "Toggle", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true %></td>
       </tr>
     <% end %>
   </tbody>

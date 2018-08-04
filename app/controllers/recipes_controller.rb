@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :shopping]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :shopping, :toggle_thisweek]
 
   # GET /recipes
   # GET /recipes.json
@@ -7,17 +7,17 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def shopping
-    @recipe = params[:id]
-
-    list = ""
-    if (@recipe != nil)
-      list = list + "," + @recipe.to_s
-      puts list + "string"
-    end
-    puts "list is" + list
-# link on shopping page to navigate back to index and not clear out ""; redirect back to index?; refer to this method in index method?  pass list out of this method to index?
-  end
+#   def shopping
+#     @recipe = params[:id]
+#
+#     list = ""
+#     if (@recipe != nil)
+#       list = list + "," + @recipe.to_s
+#       puts list + "string"
+#     end
+#     puts "list is" + list
+ # link on shopping page to navigate back to index and not clear out ""; redirect back to index?; refer to this method in index method?  pass list out of this method to index?
+#   end
 
   # GET /recipes/1
   # GET /recipes/1.json
@@ -79,6 +79,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  def toggle_thisweek
+    # @recipe = params[:id]
+    @recipe.toggle!(:thisweek)
+  end
+
+  def thisweek
+    @recipes = Recipe.where(thisweek: true)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
@@ -87,6 +96,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :category_id, :vegetarian, :amount, :unit, :ingredient_id, :tried, :rating, :meal_prep, :notes, :link, :avatar, ingredients_attributes: [:id, :name, :unit, :amount, :_destroy])
+      params.require(:recipe).permit(:name, :category_id, :vegetarian, :amount, :unit, :ingredient_id, :tried, :rating, :meal_prep, :notes, :link, :avatar, :thisweek, ingredients_attributes: [:id, :name, :unit, :amount, :_destroy])
     end
 end

@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :store_sections
   resources :ingredients
   resources :categories
-  resources :recipes
+
+  resources :recipes do
+    member do
+      patch :toggle_thisweek
+    end
+  end
 
   root 'recipes#index'
 
