@@ -25,7 +25,8 @@
         <%= link_to "Categories", categories_path, class: "navbar-brand" %>
         <%= link_to "Ingredients", ingredients_path, class: "navbar-brand" %>
         <%= link_to "Store Section", store_sections_path, class: "navbar-brand" %>
-        <%= link_to "Store Map", store_maps_path, class: "navbar-brand" %>
+        <%= link_to "This Week", thisweek_path, class: "navbar-brand" %>
+        <%= link_to "Shopping", shopping_path, class: "navbar-brand" %>
       </div>
 
     <%= form_with url: search_path, local: true, method: :get, html: { class: "form-inline my-2 my-lg-0 pull-right" } do |form| %>

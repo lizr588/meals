@@ -69,6 +69,6 @@ class StoreSectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_section_params
-      params.require(:store_section).permit(:section, :store_map_id)
+      params.require(:store_section).permit(:section, :aisle)
     end
 end

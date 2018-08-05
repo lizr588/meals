@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :shopping, :toggle_thisweek]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy,  :toggle_thisweek]
 
   # GET /recipes
   # GET /recipes.json
@@ -7,17 +7,17 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-#   def shopping
-#     @recipe = params[:id]
-#
-#     list = ""
-#     if (@recipe != nil)
-#       list = list + "," + @recipe.to_s
-#       puts list + "string"
-#     end
-#     puts "list is" + list
+  def shopping
+    @recipe = params[:id]
+    @ingredients = Ingredient.joins(:recipe).where("recipes.thisweek = ?", true)
+ #    list = ""
+ #    if (@recipe != nil)
+ #      list = list + "," + @recipe.to_s
+ #      puts list + "string"
+ #    end
+ #    puts "list is" + list
  # link on shopping page to navigate back to index and not clear out ""; redirect back to index?; refer to this method in index method?  pass list out of this method to index?
-#   end
+  end
 
   # GET /recipes/1
   # GET /recipes/1.json
