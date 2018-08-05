@@ -8,12 +8,16 @@ document.addEventListener("turbolinks:load", function() {
     },
     categories: [
       {
-        listLocation: "movies",
-        header: "<strong>Movies</strong>",
+        listLocation: "ingredients",
+        header: "<strong>Ingredients</strong>",
       },
       {
-        listLocation: "directors",
-        header: "<strong>Directors</strong>",
+        listLocation: "recipes",
+        header: "<strong>Recipes</strong>",
+      },
+      {
+        listLocation: "categories",
+        header: "<strong>Categories</strong>",
       }
     ],
     list: {

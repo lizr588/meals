@@ -1,13 +1,20 @@
 <div class="nested-fields">
+  <form class="form-inline">
 
-  <div class="field">
-    <%= f.text_field :name, label: "name" %>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.number_field :amount, placeholder: "Amount" %>
+  <div class="form-group">
+    <label for="name">Amount</label>
+    <%= f.number_field :amount %>
     </div>
-  <div class="field">
-    <%= f.text_field :unit, placeholder: "Unit" %>
+  <div class="form-group">
+    <label for="name">Unit</label>
+    <%= f.text_field :unit %>
+</div>
 
   <%= link_to_remove_association "remove", f %>
+    </form>
 </div>
