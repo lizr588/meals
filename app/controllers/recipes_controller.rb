@@ -9,7 +9,11 @@ class RecipesController < ApplicationController
 
   def shopping
     @recipe = params[:id]
-    @ingredients = Ingredient.joins(:recipe).where("recipes.thisweek = ?", true)
+    @ingredients = Recipe
+      .select('recipes.name, ingredients.name, store_sections.aisle')
+      .joins(ingredients: :store_section)
+      .where("recipes.thisweek = ?", true)
+      .order('aisle asc')
  #    list = ""
  #    if (@recipe != nil)
  #      list = list + "," + @recipe.to_s
@@ -22,6 +26,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @ingredient = Recipe.find(params[:id])
   end
 
   # GET /recipes/new

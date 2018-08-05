@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+
 <h1>Recipes</h1>
 
-<table>
+<table class="table">
+
   <thead>
     <tr>
       <th>Name</th>
       <th>Category</th>
-      <th>Amount</th>
-      <th>Unit</th>
-      <th>Ingredient</th>
       <th>Rating</th>
       <th>Notes</th>
       <th>Link</th>
@@ -17,61 +17,57 @@
       <th>Meal Prep</th>
       <th>Tried</th>
       <th>This Week</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @recipes.each do |recipe| %>
-      <tr>
+        <tr>
         <td><%= recipe.name %></td>
         <td><%= recipe.category.name %></td>
-        <td><%= recipe.amount %></td>
-        <td><%= recipe.unit %></td>
-        <td><%= recipe.ingredient_id %></td>
         <td><%= recipe.rating %></td>
         <td><%= recipe.notes %></td>
         <td><%= recipe.link %></td>
-
         <td>
           <% if recipe.vegetarian == "1" %>
             <%= "Yes" %>
           <% else %>
             <%= "No" %>
           <% end %>
-          </td>
+        </td>
           <td>
           <% if recipe.meal_prep == "1" %>
             <%= "Yes" %>
           <% else %>
             <%= "No" %>
           <% end %>
-          </td>
+        </td>
           <td>
             <% if recipe.tried == "1" %>
               <%= "Yes" %>
             <% else %>
               <%= "No" %>
             <% end %>
-            </td>
+          </td>
 
-          <td id="toggle-thisweek">
+          <td>
             <% if recipe.thisweek == false %>
               <%= "" %>
             <% else %>
               <%= "In Queue" %>
             <% end %>
-            </td>
+          </td>
 
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         <td><%= link_to "Toggle", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+    </tbody>
+  </table>
+</div>
+</br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-success" %>

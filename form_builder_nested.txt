@@ -7,3 +7,6 @@ search testing
   };
   $("input").easyAutocomplete(options)
 <%= builder.select :ingredient_id, @ingredients.collect { |c| [c.name, c.id ]}, {include_blank: "Please select an ingredient"} %>
+
+
+Recipe.select('recipes.name, ingredients.name, store_sections.aisle').joins(ingredients: :store_section).where("recipes.thisweek = ?", true).order('aisle asc')
