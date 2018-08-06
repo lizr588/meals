@@ -50,7 +50,7 @@
             <% end %>
           </td>
 
-          <td>
+          <td id="toggle-thisweek">
             <% if recipe.thisweek == false %>
               <%= "" %>
             <% else %>
@@ -62,21 +62,19 @@
         <td><%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-warning btn-xs" %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
 
-  <td>
+  <td id="toggle-thisweek">
     <label class="switch">
     <input type="checkbox">
-    <span class="slider"></span>
+    <span class="slider" id="toggle-thisweek"></span>
       <%= link_to "toggle", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true %>
   </label>
 </td>
 
-<td id="toggle-thisweek">
-<%= link_to "toggle", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true %></td>
+<td id="toggle-thisweek"><%= link_to "Toggle", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
 </div>
-</br>
 
 <%= link_to 'New Recipe', new_recipe_path, class: "btn btn-success btn-xs" %>
