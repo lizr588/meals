@@ -18,13 +18,13 @@
 
   <div>
     <label for="category">Category</label>
-    <%= form.select :category_id, @categories.collect { |c| [c.name, c.id ]}, {include_blank: "Please select a category"}, id: "searchable" %>
+    <%= form.select :category_id, @categories.collect { |c| [c.name, c.id ]}, {include_blank: "Please select a category"}, class: "searchable" %>
   </div>
 
 <div id="ingredients">
   <%= form.fields_for :ingredients do |builder| %>
   <%= render 'ingredient_fields', form: builder %>
-<% end %>
+  <% end %>
   </div>
 
   <div class="form-group">

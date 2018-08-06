@@ -16,7 +16,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require select2-full
-//= require turbolinks
 //= require jquery.easy-autocomplete
 //= require cocoon
 //= require_tree .
