@@ -2,58 +2,47 @@
 
 <div class="container">
 
-<h1>Recipes</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Notes</th>
-      <th>Link</th>
-      <th>Vegetarian</th>
-      <th>Meal Prep</th>
-      <th>Tried</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.category.name %></td>
-        <td><%= recipe.notes %></td>
-        <td><%= recipe.link %></td>
-
-        <td>
-          <% if recipe.vegetarian == "1" %>
-            <%= "Yes" %>
-          <% else %>
-            <%= "No" %>
-          <% end %>
-          </td>
-          <td>
-          <% if recipe.meal_prep == "1" %>
-            <%= "Yes" %>
-          <% else %>
-            <%= "No" %>
-          <% end %>
-          </td>
-          <td>
-            <% if recipe.tried == "1" %>
-              <%= "Yes" %>
-            <% else %>
-              <%= "No" %>
-            <% end %>
-            </td>
-
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-12"></div>
+  <h1>Recipes</h1>
 </div>
-<br>
+
+<% @recipes.each do |recipe| %>
+<div class="row">
+  <div class="col-sm-4"></div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><%= recipe.name %></strong>
+      </div>
+
+      <div class="panel-body">
+        <%= recipe.name %>
+        <%= recipe.category.name %>
+        <%= recipe.notes %>
+        <%= recipe.link %>
+        <% if recipe.vegetarian == "1" %>
+          <%= "Yes" %>
+        <% else %>
+          <%= "No" %>
+        <% end %>
+        <% if recipe.meal_prep == "1" %>
+          <%= "Yes" %>
+        <% else %>
+          <%= "No" %>
+        <% end %>
+        <% if recipe.tried == "1" %>
+          <%= "Yes" %>
+        <% else %>
+          <%= "No" %>
+        <% end %>
+      </div>
+
+
+<div class="panel-footer">
+        <td><%= link_to 'Show', recipe, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-warning" %></td>
+  </div>
+
+    <% end %>
+      </div>
+</div>

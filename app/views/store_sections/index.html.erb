@@ -3,7 +3,7 @@
 <div class="container">
 
 <h1>Store Sections</h1>
-
+<%= link_to 'New Store Section', new_store_section_path, class: "btn btn-success btn-xs" %>
 <table class=table>
   <thead>
     <tr>
@@ -18,14 +18,11 @@
       <tr>
         <td><%= store_section.section %></td>
         <td><%= store_section.aisle %></td>
-        <td><%= link_to 'Show', store_section %></td>
-        <td><%= link_to 'Edit', edit_store_section_path(store_section) %></td>
-        <td><%= link_to 'Destroy', store_section, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to 'Show', store_section, class: "btn btn-success btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_store_section_path(store_section), class: "btn btn-warning btn-xs"  %></td>
+        <td><%= link_to 'Destroy', store_section, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
-<br>
-
-<%= link_to 'New Store Section', new_store_section_path, class: "btn btn-success" %>

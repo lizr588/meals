@@ -4,7 +4,7 @@ class StoreSectionsController < ApplicationController
   # GET /store_sections
   # GET /store_sections.json
   def index
-    @store_sections = StoreSection.all
+    @store_sections = StoreSection.all.order(:aisle)
   end
 
   # GET /store_sections/1
