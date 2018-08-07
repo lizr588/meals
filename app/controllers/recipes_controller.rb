@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
 
     def ingmaster
       @recipe = params[:id]
-      @ingredients = Recipe.joins(ingredients: masteringr:)
+      @ingredients = Ingredient.joins(:masteringr, :recipe)
         # .where("recipes.thisweek = ?", true)
         # .order('aisle asc')
     end

@@ -13,3 +13,7 @@ Recipe.select('recipes.name, ingredients.name, store_sections.aisle').joins(ingr
 
 
 $("#toggle-thisweek").text("<%= @recipe.thisweek %>");
+
+
+
+SELECT ingredients.* FROM ingredients INNER JOIN masteringrs ON masteringrs.id = ingredients.masteringr_id INNER JOIN recipes ON recipes.ingredient_id = ingredients.id
