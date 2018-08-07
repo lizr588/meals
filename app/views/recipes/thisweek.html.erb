@@ -19,7 +19,7 @@
         Name: <%= recipe.name %><br />
         Category: <%= recipe.category.name %><br />
         Notes: <%= recipe.notes %><br />
-        Link: <%= recipe.link %><br />
+        Link: <%= recipe.link.html_safe %><br />
         Veg: <% if recipe.vegetarian == "1" %><br />
           <%= "Yes" %>
         <% else %>

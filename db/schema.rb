@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_221101) do
+ActiveRecord::Schema.define(version: 2018_08_07_155139) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_221101) do
     t.datetime "updated_at", null: false
     t.string "unit"
     t.float "amount"
+    t.integer "mastering_id"
   end
 
   create_table "masteringrs", force: :cascade do |t|

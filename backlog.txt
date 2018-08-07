@@ -2,6 +2,8 @@ TODO: MVP
 - Master ingredient model
 - make hyperlinks clickable
 - add users
+- seed Master ingredients List
+- add some recipes!
 
 TODO
 - refine search screen (only searches within a single table, want to include recipes with a certain ingredient, ect)

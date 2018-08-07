@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   post 'create_shopping' => 'recipes#shopping'
   get 'shopping' => 'recipes#shopping'
   get 'thisweek' => 'recipes#thisweek'
+  get 'masteringr' => 'recipes#ingmaster'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

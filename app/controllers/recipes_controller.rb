@@ -23,6 +23,13 @@ class RecipesController < ApplicationController
  # link on shopping page to navigate back to index and not clear out ""; redirect back to index?; refer to this method in index method?  pass list out of this method to index?
   end
 
+    def ingmaster
+      @recipe = params[:id]
+      @ingredients = Recipe.joins(ingredients: masteringr:)
+        # .where("recipes.thisweek = ?", true)
+        # .order('aisle asc')
+    end
+
   # GET /recipes/1
   # GET /recipes/1.json
   def show
