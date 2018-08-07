@@ -10,3 +10,6 @@ search testing
 
 
 Recipe.select('recipes.name, ingredients.name, store_sections.aisle').joins(ingredients: :store_section).where("recipes.thisweek = ?", true).order('aisle asc')
+
+
+$("#toggle-thisweek").text("<%= @recipe.thisweek %>");

@@ -16,7 +16,6 @@
       <th>Vegetarian</th>
       <th>Meal Prep</th>
       <th>Tried</th>
-      <th>This Week</th>
     </tr>
   </thead>
 
@@ -50,27 +49,17 @@
             <% end %>
           </td>
 
-          <td id="toggle-thisweek">
-            <% if recipe.thisweek == false %>
-              <%= "" %>
-            <% else %>
-              <%= "In Queue" %>
-            <% end %>
-          </td>
-
         <td><%= link_to 'Show', recipe, class: "btn btn-success btn-xs" %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-warning btn-xs" %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
 
-  <td id="toggle-thisweek">
-    <label class="switch">
-    <input type="checkbox">
-    <span class="slider" id="toggle-thisweek"></span>
-      <%= link_to "toggle", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true %>
-  </label>
-</td>
 
-<td id="toggle-thisweek"><%= link_to "Toggle", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true %></td>
+        <% if recipe.thisweek == true %>
+        <td><%= link_to "Remove", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true, class: "btn btn-primary btn-xs" %></td>
+        <% else %>
+        <td><%= link_to "Add", toggle_thisweek_recipe_path(recipe), method: :patch, remote: true, class: "btn btn-primary btn-xs"  %></td>
+        <% end %>
+
       </tr>
     <% end %>
     </tbody>

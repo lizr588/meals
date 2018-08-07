@@ -6,43 +6,45 @@
   <div class="col-md-12"></div>
   <h1>Recipes</h1>
 </div>
+<div class="row">
 
 <% @recipes.each do |recipe| %>
-<div class="row">
-  <div class="col-sm-4"></div>
-    <div class="panel panel-default">
+<div class="col-sm-4">
+<div class="panel panel-default">
       <div class="panel-heading">
         <strong><%= recipe.name %></strong>
       </div>
 
       <div class="panel-body">
-        <%= recipe.name %>
-        <%= recipe.category.name %>
-        <%= recipe.notes %>
-        <%= recipe.link %>
-        <% if recipe.vegetarian == "1" %>
+        Name: <%= recipe.name %><br />
+        Category: <%= recipe.category.name %><br />
+        Notes: <%= recipe.notes %><br />
+        Link: <%= recipe.link %><br />
+        Veg: <% if recipe.vegetarian == "1" %><br />
           <%= "Yes" %>
         <% else %>
           <%= "No" %>
         <% end %>
-        <% if recipe.meal_prep == "1" %>
+        Meal Prep: <% if recipe.meal_prep == "1" %><br />
           <%= "Yes" %>
         <% else %>
           <%= "No" %>
         <% end %>
-        <% if recipe.tried == "1" %>
+        Tried: <% if recipe.tried == "1" %><br />
           <%= "Yes" %>
         <% else %>
           <%= "No" %>
         <% end %>
       </div>
-
 
 <div class="panel-footer">
         <td><%= link_to 'Show', recipe, class: "btn btn-primary" %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-warning" %></td>
   </div>
-
+</div>
+</div>
     <% end %>
-      </div>
+
+</div>
+
 </div>

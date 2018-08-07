@@ -1,0 +1,10 @@
+TODO: MVP
+- Master ingredient model
+- make hyperlinks clickable
+- add users
+
+TODO
+- refine search screen (only searches within a single table, want to include recipes with a certain ingredient, ect)
+- fix navbar (search out of line, dropdown styling strange)
+- move items between categories
+- Make toggle button realtime (ajax?)
